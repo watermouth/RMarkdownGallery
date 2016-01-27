@@ -1,0 +1,31 @@
+---
+title: "Untitled"
+output: html_document
+---
+
+```{r}
+summary(cars)
+```
+
+```{r setup, include=FALSE}
+suppressPackageStartupMessages(library(knitr))
+```
+
+## Firstly, we plot all cars;
+
+```{r, include=F}
+chunk_id <- 1
+resource <- knit_expand(file = "plotcars.rmd")
+```
+
+`r knit(text=resource)`
+
+## Secondly, we plot some cars;
+
+```{r, include=FALSE}
+chunk_id <- 2
+cars <- cars[30:50,]
+resource <- knit_expand(file = "plotcars.rmd")
+```
+`r knit(text=resource)`
+

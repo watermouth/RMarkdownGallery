@@ -1,0 +1,3 @@
+```{r plot_cars{{chunk_id}}, echo=FALSE}
+plot(cars)
+```
