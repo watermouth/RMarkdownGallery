@@ -1,0 +1,27 @@
+---
+title: "How to make the same format reports those have different data?"
+output: html_document
+---
+
+We can use knit_expand function to make different code chunks easily.
+
+# The Data
+
+```{r}
+summary(cars)
+```
+
+```{r, echo=FALSE}
+plot(cars)
+```
+
+```{r, include = FALSE}
+chunk_ids <- 1:5
+
+res <- lapply(X = chunk_ids, FUN = function(chunk_id) {
+  knitr::knit_expand(file = "PlotCars.Rmd")
+})
+```
+
+`r knitr::knit(text = unlist(res))`
+

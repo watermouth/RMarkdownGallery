@@ -1,0 +1,11 @@
+```{r setup_cars{{chunk_id}},include=FALSE}
+targets <- cars[(({{chunk_id}} - 1) * 10 + 1) : ({{chunk_id}} * 10),]
+```
+
+## Plot Cars {{chunk_id}}
+
+```{r plot_cars{{chunk_id}}, echo=FALSE}
+plot(cars, type="n")
+points(targets, col={{chunk_id}})
+```
+
